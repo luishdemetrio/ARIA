@@ -1,4 +1,4 @@
-# Lab: Building ARIA – An Enterprise Application Management Agent in Microsoft Copilot Studio
+# Lab: Building ARIA – Application Request & Intelligence Assistance - An Enterprise Application Management Agent in Microsoft Copilot Studio
 
   ![](images/ARIA.png)
 
