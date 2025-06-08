@@ -1,9 +1,11 @@
-# Lab: Building AppWise – An Enterprise Application Management Agent in Microsoft Copilot Studio
+# Lab: Building ARIA – An Enterprise Application Management Agent in Microsoft Copilot Studio
+
+  ![](images/ARIA.png)
 
 ## Table of Contents
 1. Overview
 2. Learning Objectives
-3. Lab Scenario: Meet AppWise
+3. Lab Scenario: Meet Aria
 4. Prerequisites
 5. Part 1: Environment Setup and Access
 6. Part 2: Creating Your First Agent
@@ -20,7 +22,7 @@
 
 ## Overview
 
-In this lab, you will create **AppWise**, an intelligent AI agent for enterprise application management. This hands-on guide walks you through building an assistant that helps users discover, search, and request applications using SharePoint as the authoritative data source.
+In this lab, you will create **ARIA**, that stands for Application Request & Intelligence Assistance. Aria is an intelligent AI agent for enterprise application management. This hands-on guide walks you through building an assistant that helps users discover, search, and request applications using SharePoint as the authoritative data source.
 
 **Estimated Time**: 45-60 minutes  
 **Difficulty Level**: Beginner to Intermediate  
@@ -29,7 +31,7 @@ In this lab, you will create **AppWise**, an intelligent AI agent for enterprise
 ## Learning Objectives
 
 By the end of this lab, you will be able to:
-* Build AppWise, a specialized enterprise application management agent
+* Build Aria, a specialized enterprise application management agent
 * Configure intelligent application search and discovery capabilities
 * Implement semantic matching for application requests
 * Create dynamic actions using SharePoint List connectors
@@ -40,9 +42,9 @@ By the end of this lab, you will be able to:
 
 ---
 
-## Lab Scenario: Meet AppWise
+## Lab Scenario: Meet Aria
 
-**AppWise** is your organization’s intelligent assistant for managing enterprise applications. As employees increasingly need various software tools, AppWise serves as the central hub for:
+**Aria**, that stands for Application Request & Intelligence Assistance, is your organization’s intelligent assistant for managing enterprise applications. As employees increasingly need various software tools, Aria serves as the central hub for:
 
 - **Discovering available applications** in your organization's approved software catalog
 - **Searching by functionality** (e.g., "I need something for video editing")
@@ -50,7 +52,7 @@ By the end of this lab, you will be able to:
 - **Streamlining application requests** through a guided workflow
 - **Maintaining governance** by using SharePoint as the single source of truth
 
-AppWise embodies a helpful, concise, and proactive personality, ensuring users get quick answers while maintaining enterprise compliance through direct SharePoint List integration via Power Platform connectors.
+Aria embodies a helpful, concise, and proactive personality, ensuring users get quick answers while maintaining enterprise compliance through direct SharePoint List integration via Power Platform connectors.
 
 ---
 
@@ -66,7 +68,7 @@ Before starting, ensure you have:
 
 ## Part 1: Create the Required SharePoint Lists
 
-Before beginning the AppWise agent configuration, you need to create two SharePoint Lists: one for the application catalog and another for application requests.
+Before beginning the Aria agent configuration, you need to create two SharePoint Lists: one for the application catalog and another for application requests.
 
 ### 🧱  Step A: Navigate to SharePoint
 
@@ -135,7 +137,7 @@ The Applications list needs only one additional column (Application Name already
 ---
 ### 🧱  Step C:  Add Application Data
 
-To properly test your AppWise agent, you need to populate the list with enterprise applications. You have two options:
+To properly test your Aria agent, you need to populate the list with enterprise applications. You have two options:
 
 ### Option A: Quick Import (Recommended)
 For faster setup, you can use SharePoint's Quick Edit feature:
@@ -281,7 +283,7 @@ Before moving to Part 1, verify:
 ---
 
 **⚠️ Important Notes**: 
-- The **Applications** list serves as the catalog that AppWise searches through
+- The **Applications** list serves as the catalog that Aria searches through
 - The **Application Requests** list will be automatically populated when users submit new requests through the agent
 - Make sure both lists are accessible to users who will interact with the agent
 
@@ -318,15 +320,15 @@ Before moving to Part 1, verify:
 
 
 2. **Configure Basic Settings**
-   - **Agent Name**: `AppWise`
-   - **Description**: `Intelligent assistant for managing enterprise applications`
+   - **Agent Name**: `Aria`
+   - **Description**: `Application Request & Intelligence Assistance`
    - **Instructions**: 
      Copy and paste the following instructions:
 
     ```
     🧠 AI Agent Persona: Application Assistant.
-    Name: AppWise.
-    Role: Intelligent assistant for managing enterprise applications.
+    Name: Aria.
+    Role: Application Request & Intelligence Assistance for managing enterprise applications.
     Tone: Helpful, concise, and proactive.
     Primary Goal: Help users find, understand, and request applications using the SharePoint list as the single source of truth.
     
@@ -682,7 +684,7 @@ This is your central hub for managing and evolving your agent.
 #### ⏭️ What’s Next?
 
 
-In the next section of this lab, you’ll learn how to extend AppWise’s capabilities by adding a Connector that allows the agent to create new application requests directly in the SharePoint List. This will complete the end-to-end workflow from discovery to request submission.
+In the next section of this lab, you’ll learn how to extend Aria’s capabilities by adding a Connector that allows the agent to create new application requests directly in the SharePoint List. This will complete the end-to-end workflow from discovery to request submission.
 
 ---
 
@@ -708,7 +710,7 @@ In the next section of this lab, you’ll learn how to extend AppWise’s capabi
    
    - Enter the Description:
 
-     `This topic is used exclusively by the AppWise agent to submit a new application request to the IT team after the user has confirmed their intent and provided a business justification. It should only be triggered by the agent as the final step in the application request workflow, never directly by the user.`
+     `This topic is used exclusively by the Aria agent to submit a new application request to the IT team after the user has confirmed their intent and provided a business justification. It should only be triggered by the agent as the final step in the application request workflow, never directly by the user.`
 
 
    - Click **Save**.
