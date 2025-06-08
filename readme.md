@@ -64,7 +64,230 @@ Before starting, ensure you have:
 
 ---
 
-## Part 1: Environment Setup and Access
+## Part 1: Create the Required SharePoint Lists
+
+Before beginning the AppWise agent configuration, you need to create two SharePoint Lists: one for the application catalog and another for application requests.
+
+### 🧱  Step A: Navigate to SharePoint
+
+1. Open your web browser
+2. Navigate to your SharePoint site where you want to create the lists
+   - Example: `https://yourcompany.sharepoint.com/sites/YourSiteName`
+3. Sign in with your Microsoft 365 credentials if prompted
+
+---
+### 🧱  Step B: Create the Applications Catalog List
+
+### Create the List
+1. From your SharePoint site homepage, click **"New"** in the top navigation
+2. Select **"List"** from the dropdown menu 
+
+   ![](images/sp01.png)
+   
+3. Choose **"List"** option
+
+   ![](images/sp02.png)
+   
+4. Configure the list:
+   - **Name**: `Applications`
+
+5. Click **Create**
+     
+   ![](images/sp03.png)  
+
+
+### Add Required Columns for Applications List
+The Applications list needs only one additional column (Application Name already exists by default as "Title"):
+
+#### Column: Application Name
+- Click **"+ Add column"**
+
+  ![](images/sp04.png)  
+  
+- Select **"Text"**
+- Click **Next**
+
+  ![](images/sp05.png)  
+
+- **Column name**: `Application Name`
+- **Description**: `Name of the requested application`
+- Click **"Save"**
+
+  ![](images/sp06.png)  
+
+
+#### Column: Application Description
+- Click **"+ Add column"**
+
+  ![](images/sp04.png)  
+  
+- Select **"Multiple lines of text"**
+- Click **Next**
+
+  ![](images/sp07.png)  
+  
+- **Column name**: `Application Description`
+- **Description**: `Detailed description of the application's features and capabilities`
+- Click **"Save"**
+
+  ![](images/sp08.png)  
+
+---
+### 🧱  Step C:  Add Application Data
+
+To properly test your AppWise agent, you need to populate the list with enterprise applications. You have two options:
+
+### Option A: Quick Import (Recommended)
+For faster setup, you can use SharePoint's Quick Edit feature:
+
+1. Copy and paste the application names and descriptions from the [Applications.csv](https://github.com/luishdemetrio/AppWise-/blob/main/data/Applications.csv) file.
+   - Open the applications.csv file in Excel.
+   - Copy the rows values without the headers (from line 2)
+     
+     ![](images/sp13.png)  
+     
+2. In your Applications list, click **"Edit in grid view"** from the top menu
+
+   ![](images/sp11.png)  
+   
+3. This opens a spreadsheet-like view where you can paste data directly
+
+4. Ensure that the columns are in the same order of the excel file. You can drag and drop the columns' header to change their position.
+
+5. Click on Add new item:
+   
+   ![](images/sp12.png)
+    
+6. Click on the first empty field and paste the copied rows from Excel:
+
+   ![](images/sp14.png)  
+
+7. Click **"Exit grid view"** when finished to exit Quick Edit mode
+
+   ![](images/sp15.png)  
+
+>**💡 Tip**
+>
+>The Quick Edit method is much faster when adding multiple items at once.
+
+### Option B: Manual Entry
+Add each application manually by clicking **"+ Add new item"** for each item:
+
+![](images/sp09.png)  
+
+**Application 1:**
+- **Application Name**: `M365 Copilot`
+- **Description**: `M365 Copilot combines the power of large language models with your Microsoft 365 data to help you write, summarize, analyze, and automate tasks in Word, Excel, Outlook, and more—boosting productivity and decision-making across your workflow.`
+
+![](images/sp10.png)  
+
+**Application 2:**
+- **Application Name**: `Adobe Reader`
+- **Description**: `Adobe Reader for Teams enables seamless collaboration by allowing team members to view, comment on, and share PDFs securely across devices, streamlining document workflows and enhancing productivity in a shared workspace.`
+
+**Application 3:**
+- **Application Name**: `Copilot Studio`
+- **Description**: `Microsoft Copilot Studio is a low-code platform to build AI-powered conversational agents that automate tasks, answer queries, and integrate with enterprise data like SharePoint, using generative AI for internal or external use.`
+
+**Application 4:**
+- **Application Name**: `Visual Studio 2022`
+- **Description**: `Visual Studio 2022 is a 64-bit IDE for building, debugging, and deploying cross-platform apps for web, desktop, mobile, and cloud, with AI tools like GitHub Copilot, enhanced performance, and support for .NET, C++, Python, and more.`
+
+**Application 5:**
+- **Application Name**: `ClipChamp`
+- **Description**: `Microsoft Clipchamp is a web-based video editing tool for creating professional videos with easy trimming, cropping, transitions, text, effects, and AI features like auto captions, and stock libraries for personal or business use.`
+
+
+**Application 6:**
+- **Application Name**: `Camtasia`
+- **Description**: `Camtasia is a screen recording and video editing software used to create professional-quality tutorials, presentations, and demos by capturing on-screen activity and enhancing it with annotations, effects, and audio.`
+
+
+**Application 7:**
+- **Application Name**: `Microsoft Teams`
+- **Description**: `Microsoft Teams is a collaboration platform that combines chat, video meetings, file sharing, and integrations with Microsoft 365 apps, helping teams stay connected and productive from anywhere.`
+
+
+---
+### 🧱  Step D: Create the Application Requests List
+
+1. From your SharePoint site homepage, click **"New"** in the top navigation
+2. Select **"List"** from the dropdown menu 
+
+   ![](images/sp01.png)
+   
+3. Choose **"List"** option
+
+   ![](images/sp02.png)
+   
+4. Configure the list:
+   - **Name**: `Application Requests`
+   
+5. Click **"Create"**
+
+### Add Required Columns for Application Requests List
+
+### Column 1: Application Name
+- Click **"+ Add column"**
+- Select **"Single line of text"**
+- **Column name**: `Application Name`
+- **Description**: `Name of the requested application`
+- Click **"Save"**
+
+### Column 2: Description
+- Click **"+ Add column"**
+- Select **"Multiple lines of text"**
+- **Column name**: `Description`
+- **Description**: `Description of the requested application (auto-populated by agent)`
+- **Type of text**: Select **"Plain text"**
+- Click **"Save"**
+
+### Column 3: Business Justification
+- Click **"+ Add column"**
+- Select **"Multiple lines of text"**
+- **Column name**: `Business Justification`
+- **Description**: `Business case and justification for why this application is needed`
+- **Type of text**: Select **"Plain text"**
+- Click **"Save"**
+
+### Column 4: Requested By
+- Click **"+ Add column"**
+- Select **"Person or Group"**
+- **Column name**: `Requested By`
+- **Description**: `Person who requested this application`
+- **Allow multiple selections**: Leave unchecked
+- Click **"Save"**
+
+---
+### 🧱  Step E:  Note Your SharePoint Details
+
+Before proceeding to Part 1, make sure to record:
+
+- ✅ **SharePoint Site URL**: `https://yourcompany.sharepoint.com/sites/YourSiteName`
+- ✅ **Applications List Name**: `Applications`
+- ✅ **Application Requests List Name**: `Application Requests`
+- ✅ **Permissions**: Ensure your account has read/write access to both lists
+
+### Verification Checklist
+
+Before moving to Part 1, verify:
+- [ ] **Applications** list is created with Application Description column
+- [ ] **Application Requests** list is created with all four required columns (Application Name, Description, Business Justification, Requested By)
+- [ ] Applications catalog is populated with all 7 enterprise applications
+- [ ] Application Requests list is empty (ready to receive new requests)
+- [ ] You have the SharePoint site URL and both list names documented
+- [ ] Your account has appropriate permissions to both lists
+
+---
+
+**⚠️ Important Notes**: 
+- The **Applications** list serves as the catalog that AppWise searches through
+- The **Application Requests** list will be automatically populated when users submit new requests through the agent
+- Make sure both lists are accessible to users who will interact with the agent
+
+---
+
+## Part 2: Creating Your First Agent
 
 ### 🧱  Step 1: Access Microsoft Copilot Studio
 
@@ -80,10 +303,7 @@ Before starting, ensure you have:
 3. **Explore the Interface**
    - Familiarize yourself with the main navigation menu
    - Note the different sections: Agents, Copilots, Knowledge, etc.
----
-
-## Part 2: Creating Your First Agent
-
+   
 ### 🧱  Step 2: Create a New Agent
 
 1. **Start the Creation Process**
